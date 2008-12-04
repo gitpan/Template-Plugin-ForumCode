@@ -1,12 +1,10 @@
-#!/usr/bin/perl
+package ForumCodeTest;
+# vim: ts=8 sts=4 et sw=4 sr sta
 use strict;
 use warnings;
 
-my @forum_tests;
-
-BEGIN {
-    # a list of tests for forumcode()
-    @forum_tests = (
+sub markup_tests {
+    return (
         # escaped HTML stuff
         {
             in  => '<b>foo</b> &',
@@ -249,24 +247,7 @@ And another:
             out     => q{<a href="http://www.explosm.net/comics/1393/"><img src="http://www.flashasylum.com/db/files/Comics/Rob/luckyunderwear.png" /></a>},
         },
     );
-
-    # test count is a fixed number of tests + the length of the @tests array
-    use Test::More;
-    plan tests => ( 3 + scalar(@forum_tests) );
-
-    use_ok( 'Template::Plugin::ForumCode' );
-};
-
-# create a new thingy
-my $tt_forum = Template::Plugin::ForumCode->new();
-isnt(undef, $tt_forum, 'Plugin object is defined');
-isa_ok($tt_forum, 'Template::Plugin::ForumCode');
-
-# now some formatting tests for forumcode()
-foreach my $test (@forum_tests) {
-    my $text = $tt_forum->forumcode($test->{in});
-    if (defined $test->{diag}) {
-        diag("$test->{out} - $test->{diag}");
-    }
-    is($text, $test->{out}, qq{forumcode('$test->{in}')});
 }
+
+1;
+__END__
