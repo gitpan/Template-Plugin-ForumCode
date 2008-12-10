@@ -3,7 +3,7 @@ package HTML::ForumCode;
 use strict;
 use warnings;
 
-use version; our $VERSION = qv('0.0.4')->numify;
+use version; our $VERSION = qv('0.0.5')->numify;
 
 use Template::Plugin::HTML;
 
@@ -468,6 +468,13 @@ Create a new instance of the plugin for TT usage
 =head2 forumcode
 
 The transformation function
+
+=head1 PRIVATE METHODS
+
+=head2 init
+
+Called during the object set-up to initialise the object with the required
+information and voodoo.
 
 =head1 SEE ALSO
 

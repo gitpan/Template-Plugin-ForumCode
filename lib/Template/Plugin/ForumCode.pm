@@ -6,7 +6,7 @@ use warnings;
 use base qw{ Template::Plugin };
 use base qw{ Template::Plugin::HTML };
 
-use version; our $VERSION = qv('0.0.4')->numify;
+use version; our $VERSION = qv('0.0.5')->numify;
 
 use base qw{HTML::ForumCode};
 
@@ -50,6 +50,12 @@ markup through a HTML-esque syntax.
 =head1 MARKUP
 
 For a full description of available markup please see L<HTML::ForumCode>.
+
+=head1 PUBLIC METHODS
+
+=head2 new
+
+Create a new instance of an HTML::ForumCode object.
 
 =head1 SEE ALSO
 
